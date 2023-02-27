@@ -11,12 +11,13 @@ gem 'rack-attack'
 gem 'redis'
 gem 'redis-rails'
 gem 'devise'
+gem 'rack-cors'
 gem 'devise_token_auth'
 gem 'json-schema'
 gem 'json-schema-rspec'
 gem 'active_model_serializers'
 gem 'json-schema_builder'
-
+gem 'pry'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

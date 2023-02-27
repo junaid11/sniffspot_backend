@@ -1,4 +1,4 @@
 # app/serializers/image_serializer.rb
-class ImageSerializer < ActiveModel::Serializer
+class Api::V1::Serializers::ImageSerializer < ActiveModel::Serializer
   attributes :id, :url
 end

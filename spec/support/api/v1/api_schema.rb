@@ -1,3 +1,4 @@
+require 'json/schema_builder'
 module Api
   module V1
     class ApiSchema
@@ -22,8 +23,14 @@ module Api
       end
 
       def self.show_response_schema
-        definitions
+        object do
+          key :spot do
+            definitions
+          end
+        end
       end
+      
+      
 
       def self.create_request_schema
         object do
@@ -35,27 +42,7 @@ module Api
           key :price, type: :number, required: true
         end
       end
-
-      def self.index_response_schema
-        object do
-          key :spots, type: :array, items: definitions
-        end
-      end
-
-      def self.show_response_schema
-        definitions
-      end
-
-      def self.create_request_schema
-        object do
-          key :title, type: :string, required: true
-          key :description, type: :string, required: true
-          key :images, type: :array, items: object do
-            key :url, type: :string, required: true
-          end
-          key :price, type: :number, required: true
-        end
-      end
+ 
 
       def self.update_request_schema
         object do

@@ -1,24 +1,23 @@
-require './spec/support/api/v1/api_schema.rb'
 require_relative './serializers/spot_serializer'
 
 class Api::V1::SpotsController < Api::V1::ApiController
   before_action :set_spot, only: [:show, :update, :destroy]
-  before_action :authorize_user!, only: [:update, :destroy]
+  # before_action :authorize_user!, only: [:update, :destroy]
 
   def index
     spots = Spot.all
-    render json: spots, each_serializer: Api::V1::SpotSerializer
+    render json: spots, each_serializer: Api::V1::Serializers::SpotSerializer
   end
 
   def show
-    render json: @spot, serializer: Api::V1::SpotSerializer
+    render json: @spot, serializer: Api::V1::Serializers::SpotSerializer
   end
 
   def create
     spot = Spot.new(spot_params)
-
+    binding.pry
     if spot.save
-      render json: spot, serializer: Api::V1::SpotSerializer, schema: api_schema.show_response_schema, status: :created
+      render json: spot, serializer: Api::V1::Serializers::SpotSerializer, status: :created
     else
       render json: { errors: spot.errors }, status: :unprocessable_entity
     end
@@ -26,7 +25,7 @@ class Api::V1::SpotsController < Api::V1::ApiController
 
   def update
     if @spot.update(spot_params)
-      render json: @spot, serializer: Api::V1::SpotSerializer, schema: api_schema.show_response_schema
+      render json: @spot, serializer: Api::V1::Serializers::SpotSerializer
     else
       render json: { errors: @spot.errors }, status: :unprocessable_entity
     end
@@ -48,7 +47,7 @@ class Api::V1::SpotsController < Api::V1::ApiController
   end
 
   def spot_params
-    params.require(:spot).permit(:title, :description, :price, images: [:url])
+    params.require(:spot).permit(:title, :description, :price ,:user_id, images: [:url])
   end
 
   def api_schema

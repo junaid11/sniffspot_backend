@@ -9,11 +9,11 @@ module Api
 
       def index
         reviews = Review.all
-        render json: reviews, each_serializer: Api::V1::ReviewSerializer
+        render json: reviews, each_serializer: Api::V1::Serializers::ReviewSerializer
       end
 
       def show
-        render json: @review, serializer: Api::V1::ReviewSerializer
+        render json: @review, serializer: Api::V1::Serializers::ReviewSerializer
       end
 
       def create
