@@ -15,7 +15,6 @@ class Api::V1::SpotsController < Api::V1::ApiController
 
   def create
     spot = Spot.new(spot_params)
-    binding.pry
     if spot.save
       render json: spot, serializer: Api::V1::Serializers::SpotSerializer, status: :created
     else
