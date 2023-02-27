@@ -79,7 +79,6 @@ GEM
     builder (3.2.4)
     case_transform (0.2)
       activesupport
-    choice (0.2.0)
     coderay (1.1.3)
     concurrent-ruby (1.2.0)
     connection_pool (2.3.0)
@@ -176,11 +175,6 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-erd (1.7.2)
-      activerecord (>= 4.2)
-      activesupport (>= 4.2)
-      choice (~> 0.2.0)
-      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
     railties (7.0.4.2)
@@ -216,7 +210,6 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.5)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -230,8 +223,6 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.0)
-    ruby-graphviz (1.2.5)
-      rexml
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -261,7 +252,6 @@ DEPENDENCIES
   rack-attack
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.2)
-  rails-erd
   redis
   redis-rails
   tzinfo-data
