@@ -2,7 +2,6 @@ require_relative './serializers/spot_serializer'
 
 class Api::V1::SpotsController < Api::V1::ApiController
   before_action :set_spot, only: [:show, :update, :destroy]
-  # before_action :authorize_user!, only: [:update, :destroy]
 
   def index
     spots = Spot.all
@@ -41,20 +40,7 @@ class Api::V1::SpotsController < Api::V1::ApiController
     @spot = Spot.find(params[:id])
   end
 
-  def authorize_user!
-    head :unauthorized unless current_user && current_user == @spot.user
-  end
-
   def spot_params
     params.require(:spot).permit(:title, :description, :price ,:user_id, images: [:url])
-  end
-
-  def api_schema
-    case request.headers['Accept']
-    when 'application/vnd.spots.v1+json'
-      Api::V1::ApiSchema
-    else
-      Api::V1::ApiSchema
-    end
   end
 end
