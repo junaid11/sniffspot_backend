@@ -46,7 +46,6 @@ class Api::V1::SpotsController < Api::V1::ApiController
   end
 
   def create_images(spot)
-    binding.pry
     params[:url].map do |url|
       spot.images.create(url: url)
     end
