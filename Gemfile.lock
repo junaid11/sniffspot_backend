@@ -99,6 +99,13 @@ GEM
       rails (>= 4.2.0, < 7.1)
     diff-lcs (1.5.0)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -172,6 +179,10 @@ GEM
       activesupport (= 7.0.4.2)
       bundler (>= 1.15.0)
       railties (= 7.0.4.2)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -222,7 +233,17 @@ GEM
     rspec-mocks (3.12.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
+    rspec-rails (5.1.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      rspec-core (~> 3.10)
+      rspec-expectations (~> 3.10)
+      rspec-mocks (~> 3.10)
+      rspec-support (~> 3.10)
     rspec-support (3.12.0)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -243,6 +264,8 @@ DEPENDENCIES
   debug
   devise
   devise_token_auth
+  factory_bot_rails
+  faker
   json-schema
   json-schema-rspec
   json-schema_builder
@@ -252,8 +275,11 @@ DEPENDENCIES
   rack-attack
   rack-cors
   rails (~> 7.0.4, >= 7.0.4.2)
+  rails-controller-testing
   redis
   redis-rails
+  rspec-rails
+  shoulda-matchers
   tzinfo-data
 
 RUBY VERSION

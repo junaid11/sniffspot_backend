@@ -4,8 +4,8 @@ class Api::V1::SpotsController < Api::V1::ApiController
   before_action :set_spot, only: [:show, :update, :destroy]
 
   def index
-    spots = Spot.all
-    render json: spots, each_serializer: Api::V1::Serializers::SpotSerializer
+    @spots = Spot.all
+    render json: @spots, each_serializer: Api::V1::Serializers::SpotSerializer
   end
 
   def show
