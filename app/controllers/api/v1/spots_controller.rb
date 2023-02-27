@@ -15,6 +15,7 @@ class Api::V1::SpotsController < Api::V1::ApiController
   def create
     spot = Spot.new(spot_params)
     if spot.save
+      create_images(spot)
       render json: spot, serializer: Api::V1::Serializers::SpotSerializer, status: :created
     else
       render json: { errors: spot.errors }, status: :unprocessable_entity
@@ -42,5 +43,12 @@ class Api::V1::SpotsController < Api::V1::ApiController
 
   def spot_params
     params.require(:spot).permit(:title, :description, :price ,:user_id, images: [:url])
+  end
+
+  def create_images(spot)
+    binding.pry
+    params[:url].map do |url|
+      spot.images.create(url: url)
+    end
   end
 end
